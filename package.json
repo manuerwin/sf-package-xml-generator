@@ -1,0 +1,22 @@
+{
+  "name": "sf-package-xml-generator",
+  "version": "0.0.1",
+  "description": "CLI tool for building Salesforce.com package.xml files from directory content",
+  "main": "index.js",
+  "bin": {
+    "sfpackagexmlgen": "./index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "manuerwin",
+  "license": "ISC",
+  "dependencies": {
+    "commander": "2.9.0",
+    "fs-extra": "0.26.5",
+    "fs-walk": "0.0.1",
+    "mkdirp": "0.5.1",
+    "xmlbuilder": "4.2.1"
+  }
+}
