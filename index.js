@@ -67,7 +67,10 @@ program
 
             var meta;
 
-            if (parts.length === 4) {
+            if (type === 'aura') {
+                // aura needs to be handled by wildcard
+                meta = "*";
+            } else if (parts.length === 4) {
                 // Processing metadata with nested folders e.g. emails, documents, reports
                 meta = fileOrFolder + '/' + file.split('.')[0];
             } else if (type === 'customMetadata') {
