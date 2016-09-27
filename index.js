@@ -58,6 +58,7 @@ program
             var type = parts[1];
             var fileOrFolder = parts[2];
             var file = parts[3];
+            console.log('Processing file: %s', fullFilePath);
 
             if (fileOrFolder === undefined) {
                 console.error('File name "%s" cannot be processed, exiting', fullFilePath);
@@ -65,9 +66,16 @@ program
             }
 
             var meta;
+
             if (parts.length === 4) {
                 // Processing metadata with nested folders e.g. emails, documents, reports
                 meta = fileOrFolder + '/' + file.split('.')[0];
+            } else if (type === 'customMetadata') {
+                // customMetadata contains two dots in it's name
+                meta = fileOrFolder.split('.md')[0];
+            } else if (type === 'quickActions') {
+                // quickActions contains two dots in it's name
+                meta = fileOrFolder.split('.quickAction')[0];
             } else {
                 // Processing metadata without nested folders. Strip -meta from the end.
                 meta = fileOrFolder.split('.')[0].replace('-meta', '');
